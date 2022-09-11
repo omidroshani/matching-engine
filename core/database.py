@@ -5,6 +5,7 @@ import config
 
 DATABASE_URL = config.DATABASE_URL
 
+
 db_engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db_engine)
 
