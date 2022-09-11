@@ -1,16 +1,15 @@
-from core.models.python_object_id import PyObjectId
-from pydantic import BaseModel, Field, condecimal, conlist
 from decimal import Decimal
-from bson import ObjectId
 from typing import Optional
+from bson import ObjectId
+from pydantic import BaseModel, Field, condecimal, conlist
+from core.models.python_object_id import PyObjectId
 from core.utils.decimal_to_string import decimal_to_str
-
 
 
 class MarketModel(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
 
-    symbol : str = Field()
+    symbol: str = Field()
     price_min: condecimal(decimal_places=20, max_digits=40)
     price_max: condecimal(decimal_places=20, max_digits=40)
     price_tick: condecimal(decimal_places=20, max_digits=40)
@@ -34,7 +33,7 @@ class MarketModel(BaseModel):
                 "amount_max": "1000.000",
                 "amount_tick": "0.0001",
                 "total_min": "100",
-                "precision": ["1"]
+                "precision": ["1"],
             }
         }
 
@@ -62,6 +61,6 @@ class MarketModelUpdate(BaseModel):
                 "amount_max": "1000.000",
                 "amount_tick": "0.0001",
                 "total_min": "100",
-                "precision": ["1"]
+                "precision": ["1"],
             }
         }
